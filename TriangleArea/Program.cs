@@ -6,29 +6,37 @@ namespace TriangleArea
     {
         static void Main(string[] args)
         {
-            double x1, x2, x3, y1, y2, y3;
-            double area;
-            Console.Write("Enter x1: ");
-            x1 = Convert.ToDouble(Console.ReadLine());
+            double a1, b1, c1, a2, b2, c2;
+            double x, y;
+            Console.WriteLine("This ");
+            Console.Write("Enter coefficient a1: ");
+            a1 = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter y1: ");
-            y1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter coefficient b1: ");
+            b1 = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter x2: ");
-            x2 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter coefficient c1: ");
+            c1 = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter y2: ");
-            y2 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter coefficient a2: ");
+            a2 = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter x3: ");
-            x3 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter coefficient b2: ");
+            b2 = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter y3: ");
-            y3 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter coefficient c2: ");
+            c2 = Convert.ToDouble(Console.ReadLine());
 
-            area = (x1 * y2 + x2 * y3 + x3 * y1 - y1 * x2 - y2 * x3 - y3 * x1) / 2;
-
-            Console.WriteLine($"Area is {area}");
+            double denominator = a1 * b2 - a2 * b1;
+            Console.WriteLine($"denominator is {denominator}");
+            if (denominator != 0)
+            {
+                x = (b1 * c2 - b2 * c1) / denominator;
+                y = (a2 * c1 - a1 * c2) / denominator;
+                Console.WriteLine($"x = {x}");
+                Console.WriteLine($"y = {y}");
+                Console.WriteLine($"Lines intercept at ({x},{y})");
+            }
         }
     }
 }
