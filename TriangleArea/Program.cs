@@ -6,30 +6,37 @@ namespace TriangleArea
     {
         static void Main(string[] args)
         {
-            double x1, x2, x3, y1, y2, y3;
-            double area;
-            Console.Write("Enter x1: ");
-            x1 = Convert.ToDouble(Console.ReadLine());
+            double a, b, c;
+            double x1, x2;
+            Console.Write("Enter coefficient a: ");
+            a = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter y1: ");
-            y1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter coefficient b: ");
+            b = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter x2: ");
-            x2 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter coefficient c: ");
+            c = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter y2: ");
-            y2 = Convert.ToDouble(Console.ReadLine());
+            double discriminant = b * b - (4 * a * c);
+            if (discriminant > 0)
+            {
+                x1 = (-b + Math.Sqrt(discriminant)) / (2 * a);
+                x2 = (-b - Math.Sqrt(discriminant)) / (2 * a);
+                Console.WriteLine($"This equation has two solutions:");
+                Console.WriteLine($"x1 = {x1}");
+                Console.WriteLine($"x2 = {x2}");
 
-            Console.Write("Enter x3: ");
-            x3 = Convert.ToDouble(Console.ReadLine());
+            }
+            else if (discriminant == 0)
+            {
+                x1 = -b / (2 * a);
+                Console.WriteLine($"This equation has 1 solution, x = {x1}");
+            }
+            else
+            {
+                Console.WriteLine("This equation has no real solution.");
+            }
 
-            Console.Write("Enter y3: ");
-            y3 = Convert.ToDouble(Console.ReadLine());
-
-            area = (x1*y2 + x2*y3 + x3*y1 - y1*x2 - y2*x3 - y3*x1) / 2;
-
-            Console.WriteLine($"Area is {area}");
-            
         }
     }
 }
